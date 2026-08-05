@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>User Registration Form</h2>
+
+    <form id="registrationForm">
+
+        <label>First Name</label>
+        <input type="text" id="fname" required>
+
+        <label>Last Name</label>
+        <input type="text" id="lname" required>
+
+        <label>Father Name</label>
+        <input type="text" id="father" required>
+
+        <label>Mother Name</label>
+        <input type="text" id="mother" required>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <label>Phone Number</label>
+        <input type="tel" id="phone" required>
+
+        <h3>Education Details</h3>
+
+        <table>
+            <tr>
+                <th>Qualification</th>
+                <th>Institution</th>
+                <th>Year</th>
+                <th>Percentage/CGPA</th>
+            </tr>
+
+            <tr>
+                <td>SSC</td>
+                <td><input type="text" id="sscCollege"></td>
+                <td><input type="text" id="sscYear"></td>
+                <td><input type="text" id="sscMarks"></td>
+            </tr>
+
+            <tr>
+                <td>Intermediate</td>
+                <td><input type="text" id="interCollege"></td>
+                <td><input type="text" id="interYear"></td>
+                <td><input type="text" id="interMarks"></td>
+            </tr>
+
+            <tr>
+                <td>Degree</td>
+                <td><input type="text" id="degreeCollege"></td>
+                <td><input type="text" id="degreeYear"></td>
+                <td><input type="text" id="degreeMarks"></td>
+            </tr>
+        </table>
+
+        <br>
+
+        <label>Upload Photo</label>
+        <input type="file" id="photo" accept="image/*" required>
+
+        <label>Upload Signature</label>
+        <input type="file" id="signature" accept="image/*" required>
+
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <div id="output"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
