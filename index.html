@@ -2,88 +2,283 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration Form</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            background: #f2f5f9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px 45px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1f2937;
+        }
+
+        h2 {
+            margin-top: 25px;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #ddd;
+            color: #2563eb;
+            font-size: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #374151;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .education {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .education th,
+        .education td {
+            border: 1px solid #d1d5db;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .education th {
+            background: #f1f5f9;
+            color: #374151;
+        }
+
+        .education input {
+            width: 100%;
+        }
+
+        .upload-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .button-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 12px 35px;
+            border: none;
+            border-radius: 6px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                padding: 25px 20px;
+            }
+
+            .form-row,
+            .upload-section {
+                grid-template-columns: 1fr;
+            }
+
+            .education {
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
 <div class="container">
-    <h2>User Registration Form</h2>
 
-    <form id="registrationForm">
+    <h1>User Registration Form</h1>
 
-        <label>First Name</label>
-        <input type="text" id="fname" required>
+    <form>
 
-        <label>Last Name</label>
-        <input type="text" id="lname" required>
+        <h2>Personal Details</h2>
 
-        <label>Father Name</label>
-        <input type="text" id="father" required>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName"
+                       placeholder="Enter first name" required>
+            </div>
 
-        <label>Mother Name</label>
-        <input type="text" id="mother" required>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName"
+                       placeholder="Enter last name" required>
+            </div>
+        </div>
 
-        <label>Date of Birth</label>
-        <input type="date" id="dob" required>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="fatherName">Father Name</label>
+                <input type="text" id="fatherName" name="fatherName"
+                       placeholder="Enter father name">
+            </div>
 
-        <label>Phone Number</label>
-        <input type="tel" id="phone" required>
-	<label>Email</label>
-        <input type="text" id="phone" required>
+            <div class="form-group">
+                <label for="motherName">Mother Name</label>
+                <input type="text" id="motherName" name="motherName"
+                       placeholder="Enter mother name">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email"
+                       placeholder="Enter email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone"
+                       placeholder="Enter phone number">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+        </div>
 
 
-        <h3>Education Details</h3>
+        <h2>Education Details</h2>
 
-        <table>
-            <tr>
-                <th>Qualification</th>
-                <th>Institution</th>
-                <th>Year</th>
-                <th>Percentage/CGPA</th>
-            </tr>
+        <table class="education">
+            <thead>
+                <tr>
+                    <th>Qualification</th>
+                    <th>Institution</th>
+                    <th>Year</th>
+                    <th>Percentage / CGPA</th>
+                </tr>
+            </thead>
 
-            <tr>
-                <td>SSC</td>
-                <td><input type="text" id="sscCollege"></td>
-                <td><input type="text" id="sscYear"></td>
-                <td><input type="text" id="sscMarks"></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>SSC</td>
+                    <td>
+                        <input type="text" name="sscInstitution">
+                    </td>
+                    <td>
+                        <input type="text" name="sscYear">
+                    </td>
+                    <td>
+                        <input type="text" name="sscPercentage">
+                    </td>
+                </tr>
 
-            <tr>
-                <td>Intermediate</td>
-                <td><input type="text" id="interCollege"></td>
-                <td><input type="text" id="interYear"></td>
-                <td><input type="text" id="interMarks"></td>
-            </tr>
+                <tr>
+                    <td>Intermediate</td>
+                    <td>
+                        <input type="text" name="interInstitution">
+                    </td>
+                    <td>
+                        <input type="text" name="interYear">
+                    </td>
+                    <td>
+                        <input type="text" name="interPercentage">
+                    </td>
+                </tr>
 
-            <tr>
-                <td>Degree</td>
-                <td><input type="text" id="degreeCollege"></td>
-                <td><input type="text" id="degreeYear"></td>
-                <td><input type="text" id="degreeMarks"></td>
-            </tr>
+                <tr>
+                    <td>Degree</td>
+                    <td>
+                        <input type="text" name="degreeInstitution">
+                    </td>
+                    <td>
+                        <input type="text" name="degreeYear">
+                    </td>
+                    <td>
+                        <input type="text" name="degreePercentage">
+                    </td>
+                </tr>
+            </tbody>
         </table>
 
-        <br>
 
-        <label>Upload Photo</label>
-        <input type="file" id="photo" accept="image/*" required>
+        <h2>Upload Documents</h2>
 
-        <label>Upload Signature</label>
-        <input type="file" id="signature" accept="image/*" required>
+        <div class="upload-section">
 
-        <br><br>
+            <div class="form-group">
+                <label for="photo">Upload Photo</label>
+                <input type="file" id="photo" name="photo"
+                       accept="image/*">
+            </div>
 
-        <button type="submit">Register</button>
+            <div class="form-group">
+                <label for="signature">Upload Signature</label>
+                <input type="file" id="signature" name="signature"
+                       accept="image/*">
+            </div>
+
+        </div>
+
+
+        <div class="button-section">
+            <button type="submit">Register</button>
+        </div>
 
     </form>
 
-    <div id="output"></div>
-
 </div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
